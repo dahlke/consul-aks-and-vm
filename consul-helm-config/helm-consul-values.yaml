@@ -1,0 +1,26 @@
+global:
+  enabled: true
+  image: "hashicorp/consul-enterprise:1.4.4-ent"
+  domain: consul
+  datacenter: dc1
+
+server:
+  enabled: true
+  replicas: 1
+  bootstrapExpect: 1
+  storage: 10Gi
+  enterpriseLicense:
+    secretName: "consul-ent-license"
+    secretKey: "key"
+
+client:
+  enabled: true
+
+dns:
+  enabled: true
+
+ui:
+  enabled: true
+  service:
+    enabled: true
+    type: LoadBalancer
